@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futuristic Job Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Orbitron', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: #0ff;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #111;
+      border-bottom: 2px solid #0ff;
+    }
+    header h1 {
+      color: #0ff;
+    }
+    nav a {
+      margin-left: 20px;
+      color: #0ff;
+      text-decoration: none;
+    }
+    .container {
+      padding: 40px;
+    }
+    .login-box, .signup-box {
+      background-color: #222;
+      border: 1px solid #0ff;
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      margin: 20px auto;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+    }
+    input, select, textarea {
+      background-color: #333;
+      color: #0ff;
+    }
+    button {
+      background-color: #0ff;
+      color: #000;
+      cursor: pointer;
+    }
+    .role-switch {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .role-switch button {
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FuturePortal</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Job Seeker Login</a>
+      <a href="#">Employer Login</a>
+    </nav>
+  </header>
+
+  <div class="container" id="content">
+    <div class="role-switch">
+      <button onclick="showJobSeekerSignup()">Job Seeker</button>
+      <button onclick="showEmployerSignup()">Employer</button>
+    </div>
+
+    <div id="form-area"></div>
+  </div>
+
+  <script>
+    function showJobSeekerSignup() {
+      document.getElementById('form-area').innerHTML = `
+        <div class="signup-box">
+          <h2>Job Seeker Signup</h2>
+          <input type="text" placeholder="Full Name">
+          <input type="email" placeholder="Email">
+          <input type="password" placeholder="Password">
+          <input type="number" placeholder="CGPA">
+          <input type="text" placeholder="Skills (comma separated)">
+          <textarea placeholder="Experience and Projects"></textarea>
+          <input type="file" multiple>
+          <button>Submit Portfolio</button>
+        </div>
+      `;
+    }
+
+    function showEmployerSignup() {
+      document.getElementById('form-area').innerHTML = `
+        <div class="signup-box">
+          <h2>Employer Signup</h2>
+          <input type="text" placeholder="Company Name">
+          <input type="email" placeholder="Official Email">
+          <input type="password" placeholder="Password">
+          <input type="text" placeholder="Search Skills">
+          <input type="number" placeholder="Min CGPA">
+          <input type="text" placeholder="Experience Required">
+          <button>Search Portfolios</button>
+          <button>Sort by CGPA</button>
+          <button>Sort by Experience</button>
+        </div>
+      `;
+    }
+
+    // 👇 Automatically show Job Seeker form on page load
+    window.onload = showJobSeekerSignup;
+  </script>
+</body>
+</html>
